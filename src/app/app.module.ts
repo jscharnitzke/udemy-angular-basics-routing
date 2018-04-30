@@ -16,6 +16,7 @@ import { Routes, RouterModule } from '@angular/router';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'users', component: UsersComponent },
+  { path: 'users/:userId', component: UserComponent },
   { path: 'servers', component: ServersComponent }
 ];
 
@@ -38,4 +39,4 @@ const appRoutes: Routes = [
   providers: [ServersService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
