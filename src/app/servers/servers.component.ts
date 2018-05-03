@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
+  private selectedServer: number;
   private servers: {id: number, name: string, status: string}[] = [];
 
   constructor(
@@ -17,6 +18,11 @@ export class ServersComponent implements OnInit {
 
   ngOnInit() {
     this.servers = this.serversService.getServers();
+    this.selectedServer = this.route.snapshot.params.serverId;
+
+    this.route.params.subscribe(serverParams => {
+      this.selectedServer = serverParams.serverId;
+    });
   }
 
   onReload() {
